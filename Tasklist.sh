@@ -10,5 +10,5 @@ git checkout .
 git fetch https://github.com/thomaspara/google_tasklist_helper.git
 git pull
 source taskenv/bin/activate
-pip install -r requirements.txt
-python tasklist.py
+pip3 install -r requirements.txt
+python3 tasklist.py

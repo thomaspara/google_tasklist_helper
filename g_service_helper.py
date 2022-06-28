@@ -33,3 +33,11 @@ def Create_Service(user, api_name, api_version):
         return service
     except HttpError as err:
         print(err)
+
+if __name__ == "__main__":
+    import sys
+    flow = InstalledAppFlow.from_client_secrets_file('credentials.json', SCOPES)
+    creds = flow.run_local_server(port=0)
+    user_token = f"user_info/t_{sys.argv[1]}_{sys.argv[2]}_{sys.argv[3]}.json"
+    with open(user_token, 'w') as token:
+            token.write(creds.to_json())

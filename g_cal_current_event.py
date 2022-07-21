@@ -13,7 +13,7 @@ def main():
     """
     """
     try:
-        service = Create_Service(user, api_name, api_version)
+        service = Create_Service(user, api_name, api_version, "cal_credentials.json")
 
         # Call the Calendar API
         now = datetime.datetime.utcnow().isoformat() + 'Z'  # 'Z' indicates UTC time

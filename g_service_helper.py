@@ -11,7 +11,7 @@ from googleapiclient.errors import HttpError
 # If modifying these scopes, delete the file token.json.
 SCOPES = ['https://www.googleapis.com/auth/tasks', 'https://www.googleapis.com/auth/calendar.readonly']
 
-def Create_Service(user, api_name, api_version):
+def Create_Service(user, api_name, api_version, cred_file):
     """Creates the service to be used for the apps
     """
     user_token = f"user_info/t_{user}_{api_name}_{api_version}.json"
@@ -24,7 +24,7 @@ def Create_Service(user, api_name, api_version):
             creds.refresh(Request())
         else:
             flow = InstalledAppFlow.from_client_secrets_file(
-                'credentials.json', SCOPES)
+                cred_file, SCOPES)
             creds = flow.run_local_server(port=0)
         with open(user_token, 'w') as token:
             token.write(creds.to_json())

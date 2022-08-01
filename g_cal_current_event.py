@@ -58,8 +58,8 @@ def main():
         print(f"<tool>{left} left</tool><bar>{(elapsed/total)*100}</bar><txtclick>xdg-open https://calendar.google.com</txtclick><txt>  <span color='black' background='{current_event['color']}'> {current_event['summary']} </span>  </txt>")
 
 
-    except HttpError as err:
-        f"<tool>{err} left</tool><txtclick>python /home/thomas/Documents/Code/python/google_task_list/google_tasklist_helper/g_service_helper.py thomas_parashos calendar v3 cal</txtclick><txt>  <span color='black' background='blue'> Error </span>  </txt>"
+    except Exception as err:
+        print(f"<tool>{err}</tool><txtclick>bash /home/thomas/Documents/Code/python/google_task_list/google_tasklist_helper/g_cal_creds.sh </txtclick><txt>  <span color='black' background='blue'> Error </span>  </txt>")
 
 if __name__ == '__main__':
     #beg = datetime.datetime.utcnow()

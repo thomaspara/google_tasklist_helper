@@ -59,7 +59,7 @@ def main():
 
 
     except HttpError as err:
-        print(err)
+        f"<tool>{err} left</tool><txtclick>python /home/thomas/Documents/Code/python/google_task_list/google_tasklist_helper/g_service_helper.py thomas_parashos calendar v3 cal</txtclick><txt>  <span color='black' background='blue'> Error </span>  </txt>"
 
 if __name__ == '__main__':
     #beg = datetime.datetime.utcnow()

@@ -136,6 +136,7 @@ def main():
                 service.tasks().insert(tasklist=list_id,
                                        body={'title': task}).execute()
                 time.sleep(delay)
+            service.tasks().insert(tasklist=list_id, body={'title': f"Updated on: {str(date.today())}"}).execute()
             print(f"{list_name} complete")
 
         # Daily runs every day

@@ -7,7 +7,7 @@ import pandas as pd
 
 api_name = "tasks"
 api_version = "v1"
-delay = 0.01
+delay = 0.03
 
 
 def main():

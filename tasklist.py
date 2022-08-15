@@ -7,7 +7,7 @@ import pandas as pd
 
 api_name = "tasks"
 api_version = "v1"
-delay = 0.03
+delay = 0.1
 
 
 def main():
@@ -132,9 +132,12 @@ def main():
                     tasklist=list_id, task=x['id'], body=x).execute()
                 time.sleep(delay)
 
+            i = 0
             for task in list_tasks:
-                service.tasks().insert(tasklist=list_id,
-                                       body={'title': task}).execute()
+                service.tasks().insert(
+                    tasklist=list_id, body={'title': task}).execute()
+                i += 1
+                print(f"{i}/{len(list_tasks)}")
                 time.sleep(delay)
             service.tasks().insert(tasklist=list_id, body={'title': f"Updated on: {date.today().strftime('%A, %B %d, %Y')}"}).execute()
             print(f"{list_name} complete")
